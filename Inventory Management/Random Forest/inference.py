@@ -1,6 +1,16 @@
 import pandas as pd
 import joblib
 import click
+import numpy as np
+import random
+import warnings
+
+# Set seeds for reproducibility
+np.random.seed(42)
+random.seed(42)
+
+# Ignore warnings
+warnings.simplefilter(action='ignore', category=FutureWarning)
 
 @click.command()
 @click.option('--end_date', prompt='Enter the end date for prediction (MM-DD-YYYY)', help='The end date for which inventory should be predicted.')
