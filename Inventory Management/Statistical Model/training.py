@@ -2,6 +2,16 @@ import pandas as pd
 import itertools
 from statsmodels.tsa.arima.model import ARIMA
 import joblib
+import numpy as np
+import random
+import warnings
+
+# Set seeds for reproducibility
+np.random.seed(42)
+random.seed(42)
+
+# Ignore warnings
+warnings.simplefilter(action='ignore', category=FutureWarning)
 
 # Load the data
 data = pd.read_csv("/data")
