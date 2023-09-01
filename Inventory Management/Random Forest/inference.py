@@ -5,6 +5,16 @@ import click
 @click.command()
 @click.option('--end_date', prompt='Enter the end date for prediction (MM-DD-YYYY)', help='The end date for which inventory should be predicted.')
 def predict_inventory(end_date):
+    """
+    Predicts the inventory till a specified date using a trained ARIMA model.
+
+    Parameters:
+    - date (str): The end date in 'mm-dd-yyyy' format till which inventory prediction is needed.
+    - model_path (str): Path to the saved ARIMA model. Default is 'arima_model.pkl'.
+    
+    Returns:
+    - None. Prints the predicted inventory for each day up to the specified date.
+    """
     # Load the trained model
     rf_model = joblib.load('rf_inventory_model.pkl')
 
