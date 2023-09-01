@@ -11,6 +11,37 @@ This repository contains two main projects:
 ### Overview
 The Inventory Management system is designed to predict inventory levels up to a specified date. Multiple models were experimented with for this project, but the most effective model has been the Random Forest.
 
+### Table of Contents
+    .
+    ├── Inventory Management
+    │   ├── Random Forest
+    │   │   ├── dataset
+    │   │   │   └── dataset.csv
+    │   │   ├── README.md
+    │   │   ├── inference.py
+    │   │   └── training.py
+    │   └── Statistical Model
+    │   │   ├── dataset
+    │   │   │   └── dataset.csv
+    │       ├── README.md
+    │       ├── inference.py
+    │       └── training.py
+    ├── Inventory Replenishment System
+    │   ├── Random Forest
+    │   │   ├── dataset
+    │   │   │   └── dataset.csv
+    │   │   ├── README.md
+    │   │   ├── inference.py
+    │   │   └── training.py
+    │   └── Statistical Model
+    │   │   ├── dataset
+    │   │   │   └── dataset.csv
+    │       ├── README.md
+    │       ├── inference.py
+    │       └── training.py
+    ├── README.md
+    └── LICENSE
+
 ### Key Components
 
 - **Training Script**: Trains the model using historical inventory data.
