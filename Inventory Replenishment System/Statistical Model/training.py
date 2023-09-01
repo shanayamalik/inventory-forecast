@@ -3,6 +3,16 @@ from statsmodels.tsa.arima.model import ARIMA
 from sklearn.metrics import mean_absolute_error
 import pickle
 from itertools import product
+import numpy as np
+import random
+import warnings
+
+# Set seeds for reproducibility
+np.random.seed(42)
+random.seed(42)
+
+# Ignore warnings
+warnings.simplefilter(action='ignore', category=FutureWarning)
 
 # Load dataset
 data = pd.read_csv('path_to_dataset.csv', parse_dates=['Date'], dayfirst=True)
