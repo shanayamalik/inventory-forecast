@@ -29,20 +29,20 @@ The dataset for this project can be found in the `inventory_management/dataset` 
 ### Overview
 The Inventory Replenishment System is designed to forecast sales and recommend replenishment amounts to ensure stock availability for a specified duration.
 
-### Key Components
+### 3. Key Components
 
 - **Training Script**: This script trains the forecasting model on historical sales data. It employs the Random Forest Regressor from the Scikit-Learn library, ensuring a balance of performance and accuracy.
 - **Inference Script**: Here, we leverage the previously trained forecasting model to predict sales for a range of dates. These predictions then inform our calculations for the recommended restock amount, considering both the last available inventory and the total forecasted sales.
 
-### Dataset
+### 4. Dataset
 The dataset for this project can be found in the `inventory_replenishment_system/dataset` folder.
 
-### Best Model
+### 5. Best Model
 - **Random Forest**
 
 ---
 
-## Usage
+## 6. Usage
 Both projects are designed for easy command-line execution. 
 For the Inventory Replenishment System:
 ```bash
@@ -57,11 +57,11 @@ Replace `inference_script_name.py` with the appropriate script name and provide 
 
 ---
 
-## License
+## 6. License
 This project is licensed under the terms of the XYZ license. For more details, refer to the `LICENSE` document in the repository.
 
 ---
 
-## Additional Notes
+## 7. Additional Notes
 - Ensure that all required Python libraries are installed for successful execution.
 - For accurate predictions, it's recommended to regularly update the dataset with recent sales and inventory data.
