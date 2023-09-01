@@ -16,6 +16,16 @@ warnings.simplefilter(action='ignore', category=FutureWarning)
 @click.command()
 @click.argument('input_csv', type=str)
 def main(input_csv):
+    """
+    Trains a RandomForestRegressor model on provided data and saves the trained model.
+    
+    Parameters:
+    - input_csv (str): Path to the CSV file containing inventory and sales data.
+                      Expected columns: Date, Product, Daily Sales, Inventory Level.
+
+    Returns:
+    - None: Saves the trained model to 'trained_forecasting_model.pkl'.
+    """
     # Load data
     data = pd.read_csv(input_csv)
     
