@@ -10,6 +10,20 @@ data.set_index('Date', inplace=True)
 
 # Grid search for ARIMA parameters
 def arima_grid_search(data, p_values, d_values, q_values):
+    """
+    Performs a grid search on ARIMA model parameters, selects the best model based on Mean Absolute Error,
+    and saves the trained model as a pickle file.
+    
+    Parameters:
+    - data_path (str): Path to the CSV file containing the dataset.
+                      The dataset is expected to have a 'Date' column and a 'Sale Count' column.
+    - p_values (list): List of p values for ARIMA.
+    - d_values (list): List of d values for ARIMA.
+    - q_values (list): List of q values for ARIMA.
+
+    Returns:
+    - None: Saves the trained best ARIMA model to 'arima_model.pkl'.
+    """
     best_score, best_cfg = float('inf'), None
     for p, d, q in product(p_values, d_values, q_values):
         order = (p, d, q)
