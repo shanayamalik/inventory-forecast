@@ -5,6 +5,15 @@ import click
 @click.command()
 @click.option('--date', prompt='Enter the date in mm-dd-yyyy format', help='The date till which inventory prediction is needed.')
 def predict_inventory(date):
+    """
+    Predicts inventory up to a specified date using a trained ARIMA model.
+    
+    Parameters:
+    - date (str): The date in 'mm-dd-yyyy' format up to which inventory prediction is needed.
+
+    Returns:
+    - None: Prints the predicted inventory for each day up to the specified date.
+    """
     # Convert the input date to datetime format
     end_date = pd.to_datetime(date)
     
