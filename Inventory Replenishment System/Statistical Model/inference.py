@@ -7,7 +7,15 @@ import pickle
 @click.option('--duration', prompt='Enter duration (number of days)', type=int, help='Duration for which forecast is needed.')
 def inventory_forecast(start_date, duration):
     """
-    This script forecasts the sales and determines the required inventory.
+    Forecasts the sales for a specified duration starting from the given start date and determines the 
+    required inventory level to meet the predicted demand.
+    
+    Parameters:
+    - start_date (str): The start date in 'mm-dd-yyyy' format from which the forecast should begin.
+    - duration (int): Duration for which forecast is needed in number of days.
+
+    Returns:
+    - None: Prints the required inventory level and the forecasted sales.
     """
     # Load the saved ARIMA model
     model_filename = 'arima_model.pkl'
