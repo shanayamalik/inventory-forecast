@@ -17,6 +17,18 @@ warnings.simplefilter(action='ignore', category=FutureWarning)
 @click.option('--start_date', 'S', type=str, required=True, help='Start date for replenishment calculation')
 @click.option('--duration', 'D', type=int, required=True, help='Duration for which replenishment is to be calculated')
 def main(input_csv, S, D):
+    """
+    Calculates the recommended restock amount for a given duration, starting from a specified date, 
+    using a trained forecasting model.
+    
+    Parameters:
+    - input_csv (str): Path to the CSV file containing inventory data.
+    - S (str): Start date for replenishment calculation in format 'YYYY-MM-DD'.
+    - D (int): Duration for which replenishment is to be calculated in days.
+
+    Returns:
+    - None: Prints the recommended restock amount.
+    """
     # Load the trained model
     model = joblib.load('trained_forecasting_model.pkl')
 
