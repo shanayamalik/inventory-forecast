@@ -1,6 +1,16 @@
 import click
 import pandas as pd
 import pickle
+import numpy as np
+import random
+import warnings
+
+# Set seeds for reproducibility
+np.random.seed(42)
+random.seed(42)
+
+# Ignore warnings
+warnings.simplefilter(action='ignore', category=FutureWarning)
 
 @click.command()
 @click.option('--start_date', prompt='Enter start date in mm-dd-yyyy format', help='The start date for forecasting.')
