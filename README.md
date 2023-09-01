@@ -57,11 +57,6 @@ Replace `inference_script_name.py` with the appropriate script name and provide 
 
 ---
 
-## 6. License
-This project is licensed under the terms of the XYZ license. For more details, refer to the `LICENSE` document in the repository.
-
----
-
-## 7. Additional Notes
+## 6. Additional Notes
 - Ensure that all required Python libraries are installed for successful execution.
 - For accurate predictions, it's recommended to regularly update the dataset with recent sales and inventory data.
