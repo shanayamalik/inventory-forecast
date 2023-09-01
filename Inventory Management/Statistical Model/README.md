@@ -34,8 +34,6 @@ To predict inventory levels up to a specific date:
 python inference.py --date mm-dd-yyyy
 ```
 
-Replace `mm-dd-yyyy` with the desired date in the format "mm-dd-yyyy".
-
 ## License
 
 MIT License. Feel free to use, modify, and distribute as you see fit.
