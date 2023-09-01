@@ -11,18 +11,16 @@ data.set_index('Date', inplace=True)
 # Grid search for ARIMA parameters
 def arima_grid_search(data, p_values, d_values, q_values):
     """
-    Performs a grid search on ARIMA model parameters, selects the best model based on Mean Absolute Error,
-    and saves the trained model as a pickle file.
+    Conduct a grid search for ARIMA parameters and return the best parameters based on mean absolute error.
     
     Parameters:
-    - data_path (str): Path to the CSV file containing the dataset.
-                      The dataset is expected to have a 'Date' column and a 'Sale Count' column.
+    - data (pd.Series): Time series data.
     - p_values (list): List of p values for ARIMA.
     - d_values (list): List of d values for ARIMA.
     - q_values (list): List of q values for ARIMA.
 
     Returns:
-    - None: Saves the trained best ARIMA model to 'arima_model.pkl'.
+    - tuple: Best order parameters (p, d, q) for the ARIMA model.
     """
     best_score, best_cfg = float('inf'), None
     for p, d, q in product(p_values, d_values, q_values):
@@ -36,6 +34,17 @@ def arima_grid_search(data, p_values, d_values, q_values):
     return best_cfg
 
 def evaluate_arima_model(data, order):
+    """
+    Evaluate ARIMA model for given order and return the mean absolute error.
+    
+    Parameters:
+    - data (pd.Series): Time series data.
+    - order (tuple): Order parameters (p, d, q) for the ARIMA model.
+
+    Returns:
+    - float: Mean Absolute Error for the ARIMA model.
+    """
+    
     train_size = int(len(data) * 0.8)
     train, test = data[0:train_size], data[train_size:]
     model = ARIMA(train, order=order)
