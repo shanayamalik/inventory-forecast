@@ -46,12 +46,12 @@ data['Year'] = data['Date'].dt.year
 data = data.drop(columns=['Product ID'])
 # Split the data
 train_data, _ = train_test_split(data, test_size=0.2, random_state=42)
-X_train = train_data.drop(columns=['Inventory', 'Date'])
+X_train = train_data.drop(columns=['Inventory', 'Date','Sale Count'])
 y_train = train_data['Inventory']
 
 # Train the Random Forest model
 rf_model = RandomForestRegressor(n_estimators=100, random_state=42)
 rf_model.fit(X_train, y_train)
-
+X_train
 # Save the trained model
 joblib.dump(rf_model, 'rf_inventory_model.pkl')
