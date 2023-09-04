@@ -36,8 +36,6 @@ def add_holiday_weekday_columns(data):
     
     return data
 
-# Load data to add columns and check results
-
 
 @click.command()
 @click.argument('input_csv', type=str)
