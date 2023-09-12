@@ -24,14 +24,20 @@ dataset['weekday'] = dataset['Date'].dt.day_name()
 dataset['holiday'] = dataset['Date'].apply(lambda x: x in holidays.US()).astype(int)
 dataset.drop('Sale Count', axis=1, inplace=True)
 
+# Create lag features to capture historical inventory values
 for i in range(1, 8):
     dataset[f'lag_{i}'] = dataset['Inventory'].shift(i)
 dataset.dropna(inplace=True)
 
+# Convert weekday names to numerical labels for model training
 le = LabelEncoder()
 dataset['weekday'] = le.fit_transform(dataset['weekday'])
+
+# Split the data into features (X) and target (y)
 X = dataset.drop(['Date', 'Product ID', 'Inventory'], axis=1)
 y = dataset['Inventory']
+
+# Split the dataset into training and test sets without shuffling (keeping the time series order)
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, shuffle=False)
 
 # Train the XGBoost model
