@@ -54,8 +54,11 @@ def predict_inventory(date):
     target_date = pd.to_datetime(date)
     
     predictions = []
-
+    
+    # Prediction Loop:
+    # While the current 'last_date' is less than the specified 'target_date':
     while last_date < target_date:
+        # Preprocess the data
         last_date += timedelta(days=1)
         input_data = pd.DataFrame({'Date': [last_date]})
         input_data['weekday'] = input_data['Date'].dt.day_name()
