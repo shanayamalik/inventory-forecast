@@ -18,6 +18,26 @@ warnings.simplefilter(action='ignore', category=FutureWarning)
 @click.command()
 @click.option('--date', prompt='Enter the date to predict up to (YYYY-MM-DD)', type=str)
 def predict_inventory(date):
+    """
+    Predicts inventory levels for each day from the last date in the dataset up to 
+    a given target date using a trained XGBoost model.
+
+    Parameters:
+    - date (str): The target date up to which the inventory predictions are to be made, in the format "YYYY-MM-DD".
+
+    Workflow:
+    1. Loading Resources: Loads the trained XGBoost model and label encoder from disk.
+    2. Data Preparation: Loads the previous dataset, ensures it's sorted by date, and determines the last date.
+    3. Prediction Loop:
+        - For each day from the last date in the dataset to the target date:
+            a. Generate relevant features for the day, including weekday, whether it's a holiday, and lag features.
+            b. Predict the inventory level using the trained model.
+            c. Append the prediction to the dataset to assist in generating lag features for subsequent days.
+    4. Display: Outputs the predicted inventory for each date.
+
+    Returns:
+    None. Prints the predicted inventory levels for each date.
+    """
     # Load the trained model and label encoder
     xgb_model = joblib.load("xgb_model.pkl")
     le = joblib.load("label_encoder.pkl")
