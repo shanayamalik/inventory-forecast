@@ -44,13 +44,13 @@ def predict_inventory(end_date):
     - None: Prints the predicted inventory for each day up to the specified end date.
     """
     # Load the trained model
-    rf_model = joblib.load('rf_inventory_model.pkl')
+    rf_model = joblib.load('rf_inventory_model1.pkl')
 
     # Convert the user-provided date to the correct format
     end_date_formatted = pd.to_datetime(end_date, format='%m-%d-%Y')
 
     # Predict the inventory till the specified end date
-    data = pd.read_csv('inventory forcast/random forest/scripts/dataset.csv')
+    data = pd.read_csv('Inventory Management/Random Forest/dataset/dataset.csv')
     last_date = pd.to_datetime(data['Date'].max())
     future_dates = pd.date_range(start=last_date + pd.Timedelta(days=1), end=end_date_formatted)
     future_data = pd.DataFrame({

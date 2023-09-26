@@ -37,9 +37,9 @@ def add_holiday_weekday_columns(data):
     return data
 
 
-@click.command()
-@click.argument('input_csv', type=str)
-def main(input_csv):
+# @click.command()
+# @click.argument('input_csv', type=str)
+def main(input_csv="Inventory Replenishment System/Random forest/dataset/dataset.csv"):
     """
     Trains a RandomForestRegressor model on provided data and saves the trained model.
     
@@ -54,7 +54,7 @@ def main(input_csv):
     data = pd.read_csv(input_csv)
     data = add_holiday_weekday_columns(data)
     # Assuming the columns are named as mentioned: Date, Product ID, Sale Count, Inventory
-    X = data.drop(columns=['Date', 'Product ID', 'Sale Count'])
+    X = data.drop(columns=['Date', 'Product ID', 'Sale Count','Inventory'])
     
     y = data['Sale Count']
 

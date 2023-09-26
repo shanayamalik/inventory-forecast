@@ -5,16 +5,21 @@ import joblib
 import numpy as np
 import random
 import warnings
-
+from statsmodels.tools.sm_exceptions import ConvergenceWarning, ValueWarning
+import warnings
 # Set seeds for reproducibility
 np.random.seed(42)
 random.seed(42)
-
+# Suppress specific warnings from statsmodels
+warnings.simplefilter('ignore', ConvergenceWarning)
+warnings.simplefilter('ignore', ValueWarning)
 # Ignore warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)
-
+warnings.filterwarnings("ignore", message="Non-invertible starting MA parameters found.")
+warnings.filterwarnings("ignore", message="Non-invertible starting MA parameters found.")
+warnings.filterwarnings("ignore", message="Non-stationary starting autoregressive parameters found.")
 # Load the data
-data = pd.read_csv("/data")
+data = pd.read_csv("Inventory Management/Statistical Model/dataset/dataset.csv")
 data['Date'] = pd.to_datetime(data['Date'])
 
 # Define the p, d and q parameters to take any value between 0 and 3

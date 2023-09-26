@@ -37,10 +37,10 @@ def add_holiday_weekday_columns(data):
     return data
 
 @click.command()
-@click.argument('input_csv', type=str)
-@click.option('--start_date', 'S', type=str, required=True, help='Start date for replenishment calculation')
-@click.option('--duration', 'D', type=int, required=True, help='Duration for which replenishment is to be calculated')
-def main(input_csv,S, D):
+# @click.argument('input_csv', type=str, prompt="Please enter the path to the input CSV")
+@click.option('--start_date', 'S', type=str, required=True, prompt="Enter start date (YYYY-MM-DD) for replenishment calculation", help='Start date for replenishment calculation')
+@click.option('--duration', 'D', type=int, required=True, prompt="Enter duration for which replenishment is to be calculated", help='Duration for which replenishment is to be calculated')
+def main(S, D,input_csv="Inventory Replenishment System/Random forest/dataset/dataset.csv"):
     """
     Calculates the recommended restock amount for a given duration, starting from a specified date, 
     using a trained forecasting model.

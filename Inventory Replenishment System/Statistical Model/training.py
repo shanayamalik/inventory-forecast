@@ -13,9 +13,14 @@ random.seed(42)
 
 # Ignore warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)
-
+warnings.filterwarnings('ignore', 'No supported index is available.')
+warnings.filterwarnings('ignore', 'A date index has been provided, but it has no associated frequency information and so will be ignored when e.g. forecasting.')
+warnings.filterwarnings('ignore', 'A date index has been provided, but it is not monotonic and so will be ignored when e.g. forecasting.')
+warnings.filterwarnings('ignore', 'Non-stationary starting autoregressive parameters found.')
+warnings.filterwarnings('ignore', 'Non-invertible starting MA parameters found.')
+warnings.filterwarnings('ignore', 'Parsing dates in MM/DD/YYYY format when dayfirst=True was specified.')
 # Load dataset
-data = pd.read_csv('path_to_dataset.csv', parse_dates=['Date'], dayfirst=True)
+data = pd.read_csv('Inventory Replenishment System/Statistical Model/dataset/dataset.csv', parse_dates=['Date'], dayfirst=True)
 data.set_index('Date', inplace=True)
 
 # Grid search for ARIMA parameters

@@ -10,8 +10,11 @@ np.random.seed(42)
 random.seed(42)
 
 # Ignore warnings
+warnings.simplefilter(action='ignore', category=Warning)
 warnings.simplefilter(action='ignore', category=FutureWarning)
-
+warnings.filterwarnings(action='ignore', module='statsmodels.tsa.base.tsa_model', category=UserWarning, message='No supported index is available.')
+warnings.filterwarnings('ignore', 'Parsing dates in MM/DD/YYYY format when dayfirst=True was specified.')
+warnings.filterwarnings('ignore', 'No supported index is available. Prediction results will be given with an integer index beginning at `start`.')
 @click.command()
 @click.option('--start_date', prompt='Enter start date in mm-dd-yyyy format', help='The start date for forecasting.')
 @click.option('--duration', prompt='Enter duration (number of days)', type=int, help='Duration for which forecast is needed.')
@@ -33,12 +36,13 @@ def inventory_forecast(start_date, duration):
         model = pickle.load(model_file)
     
     # Load data
-    data = pd.read_csv('path_to_dataset.csv', parse_dates=['Date'], dayfirst=True)
-    data.set_index('Date', inplace=True)
-
+    data = pd.read_csv('Inventory Replenishment System/Statistical Model/dataset/dataset.csv', parse_dates=['Date'])
+    # data.set_index('Date', inplace=True)
+    start_idx=data["Date"].iloc[0]
+    ind = abs(start_idx - pd.Timestamp(start_date)).days
     # Forecast sales for the specified duration
-    start_idx = data.index.get_loc(pd.Timestamp(start_date))
-    forecast = model.forecast(steps=duration + start_idx)[-duration:]
+    # start_idx = data.index.get_loc(pd.Timestamp(start_date))
+    forecast = model.forecast(steps=duration + ind)[-duration:]
     
     # Retrieve the last inventory value from the dataset
     last_inventory = data['Inventory'].iloc[-1]
@@ -48,7 +52,7 @@ def inventory_forecast(start_date, duration):
     required_inventory = total_forecasted_sales - last_inventory
 
     click.echo(f"Required Inventory: {required_inventory}")
-    click.echo(f"Forecasted Sales:\n{forecast}")
+    # click.echo(f"Forecasted Sales:\n{forecast}")
 
 if __name__ == '__main__':
     inventory_forecast()

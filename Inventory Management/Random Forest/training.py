@@ -36,7 +36,7 @@ def add_holiday_weekday_columns(data):
 
 # Load and preprocess the data
 # data = pd.read_csv('inventory forcast/random forest/scripts/dataset.csv')
-data = pd.read_csv('dataset.csv')
+data = pd.read_csv('Inventory Management/Random Forest/dataset/dataset.csv')
 data=add_holiday_weekday_columns(data)
 # Convert 'Date' to datetime format and extract features
 data['Date'] = pd.to_datetime(data['Date'])
@@ -54,4 +54,4 @@ rf_model = RandomForestRegressor(n_estimators=100, random_state=42)
 rf_model.fit(X_train, y_train)
 X_train
 # Save the trained model
-joblib.dump(rf_model, 'rf_inventory_model.pkl')
+joblib.dump(rf_model, 'rf_inventory_model1.pkl')

@@ -26,20 +26,20 @@ def predict_inventory(date):
     """
     # Convert the input date to datetime format
     end_date = pd.to_datetime(date)
-    
+    data=pd.read_csv("Inventory Management/Statistical Model/dataset/dataset.csv")
     # Load the trained model
     model = joblib.load('arima_model.pkl')
     
     # Get the number of days to forecast
-    forecast_days = (end_date - model.data.dates[-1]).days
-    
+    # forecast_days = (end_date - pd.to_datetime(data["Date"].iloc[-1]).strftime('%m-%d-%Y')).days
+    forecast_days = (end_date - pd.to_datetime(data["Date"].iloc[-1])).days
     # Make predictions
     forecast = model.get_forecast(steps=forecast_days)
     mean_forecast = forecast.predicted_mean
     
     # Print the predictions
-    for date, prediction in zip(pd.date_range(model.data.dates[-1], periods=forecast_days, closed='right'), mean_forecast):
-        print(f"Predicted inventory for {date.strftime('%Y-%m-%d')}: {prediction:.2f}")
+    for date, prediction in zip(pd.date_range(pd.to_datetime(data["Date"].iloc[-1]), periods=forecast_days, closed='right'), mean_forecast):
+        print(f"Predicted inventory for {date.strftime('%Y-%m-%d')}: {int(prediction)}")
     
 if __name__ == '__main__':
     predict_inventory()
