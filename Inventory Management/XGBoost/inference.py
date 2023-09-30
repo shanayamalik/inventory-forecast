@@ -17,7 +17,7 @@ warnings.simplefilter(action='ignore', category=FutureWarning)
 
 # @click.command()
 # @click.option('--date', prompt='Enter the date to predict up to (YYYY-MM-DD)', type=str)
-def predict_inventory(date="2023-08-25"):
+def predict_inventory(date="2023-09-22"):
     # Load the trained model and label encoder
     xgb_model = joblib.load("xgb_model.pkl")
     le = joblib.load("label_encoder.pkl")
@@ -45,7 +45,6 @@ def predict_inventory(date="2023-08-25"):
         # Generate lag features from the previous dataset
         for i in range(1, 8):
             input_data[f'lag_{i}'] = dataset['Inventory'].iloc[-i]
-        
         # Predict using the loaded model
         prediction = xgb_model.predict(input_data.drop('Date', axis=1))
         predictions.append((last_date, prediction[0]))
