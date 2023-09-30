@@ -18,6 +18,7 @@ warnings.simplefilter(action='ignore', category=FutureWarning)
 # @click.command()
 # @click.option('--date', prompt='Enter the date to predict up to (YYYY-MM-DD)', type=str)
 def predict_inventory(date="2023-09-22"):
+    dataset = pd.read_csv("Inventory Management/xgboost/dataset/dataset.csv")
     # Load the trained model and label encoder
     xgb_model = joblib.load("xgb_model.pkl")
     le = joblib.load("label_encoder.pkl")

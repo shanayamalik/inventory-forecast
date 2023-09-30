@@ -37,8 +37,8 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, shuffle
 
 # Train the XGBoost model
 # xgb_model = xgb.XGBRegressor(colsample_bytree= 0.6, gamma= 0.4, learning_rate= 0.01,max_depth= 3, min_child_weight= 1, n_estimators= 50,objective="reg:squarederror", reg_alpha= 1, reg_lambda= 4.5, subsample=0.6)
-xgb_model=xgb.XGBRegressor()
-xgb_model.fit(X_train, y_train)
+xgb_model=xgb.XGBRegressor(n_estimators=250)
+xgb_model.fit(X, y)
 Ada_model = AdaBoostRegressor(n_estimators=200,learning_rate=0.01,loss='square')
 Ada_model.fit(X_train, y_train)
 
@@ -48,7 +48,9 @@ joblib.dump(Ada_model, "Ada_model.pkl")
 
 joblib.dump(le, "label_encoder.pkl")
 
+# Predict using the custom function
 
+# Now use the custom prediction function
  
 
 
