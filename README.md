@@ -1,79 +1,41 @@
-# Inventory Management Systems
+# Inventory Forecast
 
-This repository contains two main projects:
-- **Inventory Management**
-- **Inventory Replenishment System**
+The "inventory-forecast" repository is dedicated to providing solutions for inventory management and replenishment using various machine learning and statistical models. The repository is structured into two main sections: "Inventory Management" and "Inventory Replenishment System". Each section contains implementations using Random Forest, XGBoost, and Statistical Models.
 
----
+## Inventory Management
 
-## 1. Inventory Management
+### Random Forest
+- **Training**: The training script for the Random Forest model can be found [here](https://github.com/shanayamalik/inventory-forecast/blob/main/Inventory%20Management/Random%20Forest/training.py). This script is responsible for training the model using historical inventory data.
+- **Inference**: The inference script can be found [here](https://github.com/shanayamalik/inventory-forecast/blob/main/Inventory%20Management/Random%20Forest/inference.py). It uses the trained Random Forest model to predict future inventory levels.
 
-### Overview
-The Inventory Management system is designed to predict inventory levels up to a specified date. Multiple models were experimented with for this project, but the most effective model has been the Random Forest.
+### XGBoost
+- **Training**: The training script for the XGBoost model is located [here](https://github.com/shanayamalik/inventory-forecast/blob/main/Inventory%20Management/XGBoost/training.py).
+- **Inference**: The inference script for the XGBoost model is available [here](https://github.com/shanayamalik/inventory-forecast/blob/main/Inventory%20Management/XGBoost/inference.py).
 
-### Table of Contents
-    .
-    ├── Inventory Management
-    │   ├── Random Forest
-    │   │   ├── dataset
-    │   │   │   └── dataset.csv
-    │   │   ├── README.md
-    │   │   ├── inference.py
-    │   │   └── training.py
-    │   └── Statistical Model
-    │   │   ├── dataset
-    │   │   │   └── dataset.csv
-    │       ├── README.md
-    │       ├── inference.py
-    │       └── training.py
-    ├── Inventory Replenishment System
-    │   ├── Random Forest
-    │   │   ├── dataset
-    │   │   │   └── dataset.csv
-    │   │   ├── README.md
-    │   │   ├── inference.py
-    │   │   └── training.py
-    │   └── Statistical Model
-    │   │   ├── dataset
-    │   │   │   └── dataset.csv
-    │       ├── README.md
-    │       ├── inference.py
-    │       └── training.py
-    ├── README.md
-    └── LICENSE
+### Statistical Model
+- **Training**: The training script for the Statistical model can be accessed [here](https://github.com/shanayamalik/inventory-forecast/blob/main/Inventory%20Management/Statistical%20Model/training.py).
+- **Inference**: The inference script for the Statistical model is located [here](https://github.com/shanayamalik/inventory-forecast/blob/main/Inventory%20Management/Statistical%20Model/inference.py).
 
-### Key Components
+## Inventory Replenishment System
 
-- **Training Script**: Trains the model using historical inventory data.
-- **Inference Script**: Uses the trained model to predict inventory levels up to a provided date. This script accepts a command-line input date until which the inventory is to be predicted.
+### Random Forest
+- **Training**: The training script for the Random Forest model in the replenishment system is [here](https://github.com/shanayamalik/inventory-forecast/blob/main/Inventory%20Replenishment%20System/Random%20forest/training.py).
+- **Inference**: The inference script for this model can be found [here](https://github.com/shanayamalik/inventory-forecast/blob/main/Inventory%20Replenishment%20System/Random%20forest/inference.py).
 
-### Dataset
-The dataset for this project can be found in the `inventory_management/dataset` folder.
+### Statistical Model
+- **Training**: The training script for the Statistical model in the replenishment system is available [here](https://github.com/shanayamalik/inventory-forecast/blob/main/Inventory%20Replenishment%20System/Statistical%20Model/training.py).
+- **Inference**: The inference script for this model is located [here](https://github.com/shanayamalik/inventory-forecast/blob/main/Inventory%20Replenishment%20System/Statistical%20Model/inference.py).
 
-### Best Model
-- **Random Forest**
+## Getting Started
 
----
+To get started with the models, follow these steps:
 
-## 2. Inventory Replenishment System
+1. Clone the repository to your local machine.
+2. Navigate to the desired model directory.
+3. Run the training script to train the model using your data.
+4. Use the inference script to make predictions.
 
-### Overview
-The Inventory Replenishment System is designed to forecast sales and recommend replenishment amounts to ensure stock availability for a specified duration.
-
-### 3. Key Components
-
-- **Training Script**: This script trains the forecasting model on historical sales data. It employs the Random Forest Regressor from the Scikit-Learn library, ensuring a balance of performance and accuracy.
-- **Inference Script**: Here, we leverage the previously trained forecasting model to predict sales for a range of dates. These predictions then inform our calculations for the recommended restock amount, considering both the last available inventory and the total forecasted sales.
-
-### 4. Dataset
-The dataset for this project can be found in the `inventory_replenishment_system/dataset` folder.
-
-### 5. Best Model
-- **Random Forest**
-
----
-
-## 6. Usage
+## Usage
 Both projects are designed for easy command-line execution. 
 For the Inventory Replenishment System:
 ```bash
@@ -88,6 +50,10 @@ Replace `inference_script_name.py` with the appropriate script name and provide 
 
 ---
 
-## 6. Additional Notes
-- Ensure that all required Python libraries are installed for successful execution.
-- For accurate predictions, it's recommended to regularly update the dataset with recent sales and inventory data.
+## Contributing
+
+Contributions are welcome! Please read the [CONTRIBUTING.md](CONTRIBUTING.md) for details on how to contribute.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE.md](LICENSE.md) file for details.
