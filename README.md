@@ -1,59 +1,74 @@
 # Inventory Forecast
 
-The "inventory-forecast" repository is dedicated to providing solutions for inventory management and replenishment using various machine learning and statistical models. The repository is structured into two main sections: "Inventory Management" and "Inventory Replenishment System". Each section contains implementations using Random Forest, XGBoost, and Statistical Models.
+## Overview
 
-## Inventory Management
+The "inventory-forecast" repository is a comprehensive solution designed for inventory management and replenishment. Utilizing advanced machine learning and statistical models, this system aids businesses in optimizing their inventory processes, ensuring efficient stock management and minimizing stockouts or overstock situations.
 
-### Random Forest
-- **Training**: The training script for the Random Forest model can be found [here](https://github.com/shanayamalik/inventory-forecast/blob/main/Inventory%20Management/Random%20Forest/training.py). This script is responsible for training the model using historical inventory data.
-- **Inference**: The inference script can be found [here](https://github.com/shanayamalik/inventory-forecast/blob/main/Inventory%20Management/Random%20Forest/inference.py). It uses the trained Random Forest model to predict future inventory levels.
+## Models
 
-### XGBoost
-- **Training**: The training script for the XGBoost model is located [here](https://github.com/shanayamalik/inventory-forecast/blob/main/Inventory%20Management/XGBoost/training.py).
-- **Inference**: The inference script for the XGBoost model is available [here](https://github.com/shanayamalik/inventory-forecast/blob/main/Inventory%20Management/XGBoost/inference.py).
+The repository incorporates various models to cater to different inventory scenarios and requirements:
 
-### Statistical Model
-- **Training**: The training script for the Statistical model can be accessed [here](https://github.com/shanayamalik/inventory-forecast/blob/main/Inventory%20Management/Statistical%20Model/training.py).
-- **Inference**: The inference script for the Statistical model is located [here](https://github.com/shanayamalik/inventory-forecast/blob/main/Inventory%20Management/Statistical%20Model/inference.py).
+### Inventory Management
 
-## Inventory Replenishment System
+- **Random Forest**: A versatile machine learning model known for its accuracy and ability to handle large datasets.
+  - [Training Script](https://github.com/shanayamalik/inventory-forecast/blob/main/Inventory%20Management/Random%20Forest/training.py)
+  - [Inference Script](https://github.com/shanayamalik/inventory-forecast/blob/main/Inventory%20Management/Random%20Forest/inference.py)
 
-### Random Forest
-- **Training**: The training script for the Random Forest model in the replenishment system is [here](https://github.com/shanayamalik/inventory-forecast/blob/main/Inventory%20Replenishment%20System/Random%20forest/training.py).
-- **Inference**: The inference script for this model can be found [here](https://github.com/shanayamalik/inventory-forecast/blob/main/Inventory%20Replenishment%20System/Random%20forest/inference.py).
+- **XGBoost**: An optimized gradient boosting machine learning library designed for speed and performance.
+  - [Training Script](https://github.com/shanayamalik/inventory-forecast/blob/main/Inventory%20Management/XGBoost/training.py)
+  - [Inference Script](https://github.com/shanayamalik/inventory-forecast/blob/main/Inventory%20Management/XGBoost/inference.py)
 
-### Statistical Model
-- **Training**: The training script for the Statistical model in the replenishment system is available [here](https://github.com/shanayamalik/inventory-forecast/blob/main/Inventory%20Replenishment%20System/Statistical%20Model/training.py).
-- **Inference**: The inference script for this model is located [here](https://github.com/shanayamalik/inventory-forecast/blob/main/Inventory%20Replenishment%20System/Statistical%20Model/inference.py).
+- **Statistical Model**: A model based on statistical methods tailored for time series forecasting.
+  - [Training Script](https://github.com/shanayamalik/inventory-forecast/blob/main/Inventory%20Management/Statistical%20Model/training.py)
+  - [Inference Script](https://github.com/shanayamalik/inventory-forecast/blob/main/Inventory%20Management/Statistical%20Model/inference.py)
+
+### Inventory Replenishment System
+
+- **Random Forest**:
+  - [Training Script](https://github.com/shanayamalik/inventory-forecast/blob/main/Inventory%20Replenishment%20System/Random%20forest/training.py)
+  - [Inference Script](https://github.com/shanayamalik/inventory-forecast/blob/main/Inventory%20Replenishment%20System/Random%20forest/inference.py)
+
+- **Statistical Model**:
+  - [Training Script](https://github.com/shanayamalik/inventory-forecast/blob/main/Inventory%20Replenishment%20System/Statistical%20Model/training.py)
+  - [Inference Script](https://github.com/shanayamalik/inventory-forecast/blob/main/Inventory%20Replenishment%20System/Statistical%20Model/inference.py)
 
 ## Getting Started
 
-To get started with the models, follow these steps:
+To get started with the "inventory-forecast" system, follow the steps outlined in the setup section.
 
-1. Clone the repository to your local machine.
-2. Navigate to the desired model directory.
-3. Run the training script to train the model using your data.
-4. Use the inference script to make predictions.
+## Setup
 
-## Usage
-Both projects are designed for easy command-line execution. 
-For the Inventory Replenishment System:
-```bash
-python inference_script_name.py --date YYYY-MM-DD
-```
+### Prerequisites
 
-For the Inventory Replenishment System:
-```bash
-python inference_script_name.py --start MM-DD-YYYY --duration D
-```
-Replace `inference_script_name.py` with the appropriate script name and provide the relevant date parameters.
+- Python 3.7 or higher
+- pip (Python package installer)
 
----
+### Installation
 
-## Contributing
+1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/shanayamalik/inventory-forecast.git
+   cd inventory-forecast
 
-Contributions are welcome! Please read the [CONTRIBUTING.md](CONTRIBUTING.md) for details on how to contribute.
+2. **Install Dependencies**
+   ```bash
+   pip install -r requirements.txt
+
+3. **Data Setup**
+     Ensure you have your data files placed in the appropriate directories. Update any paths in the training and inference scripts if necessary.
+
+4. **Model Training**
+     Navigate to the desired model directory and run the training script
+   ```bash
+   python training.py
+
+5. **Model Inference**
+     Once the model is trained, you can use the inference script to make predictions
+   ```bash
+   python inference.py
 
 ## License
+This project is licensed under the MIT License. For more details, please refer to the LICENSE.md file.
 
-This project is licensed under the MIT License. See the [LICENSE.md](LICENSE.md) file for details.
+## Contributing
+Contributions to the "inventory-forecast" repository are always welcome. Whether it's enhancing existing features, adding new functionalities, or simply improving documentation, your efforts are appreciated. Please read the CONTRIBUTING.md for guidelines on how to contribute.
