@@ -54,15 +54,15 @@ To get started with the "inventory-forecast" system, follow the steps outlined i
    ```bash
    pip install -r requirements.txt
 
-3. **Data Setup**
+3. **Data Setup:**
      Ensure you have your data files placed in the appropriate directories. Update any paths in the training and inference scripts if necessary.
 
-4. **Model Training**
+4. **Model Training:**
      Navigate to the desired model directory and run the training script
    ```bash
    python training.py
 
-5. **Model Inference**
+5. **Model Inference:**
      Once the model is trained, you can use the inference script to make predictions
    ```bash
    python inference.py
