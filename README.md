@@ -81,6 +81,3 @@ To get started with the "inventory-forecast" system, follow the steps outlined i
 
 ## License
 This project is licensed under the MIT License. For more details, please refer to the LICENSE.md file.
-
-## Contributing
-Contributions to the "inventory-forecast" repository are always welcome. Whether it's enhancing existing features, adding new functionalities, or simply improving documentation, your efforts are appreciated. Please read the CONTRIBUTING.md for guidelines on how to contribute.
