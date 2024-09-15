@@ -2,7 +2,7 @@
 
 ## Overview
 
-The "inventory-forecast" repository is a comprehensive solution designed for inventory management and replenishment. Utilizing advanced machine learning and statistical models, this system aids businesses in optimizing their inventory processes, ensuring efficient stock management and minimizing stockouts or overstock situations.
+The "inventory-forecast" repository is designed for inventory management and replenishment. Utilizing advanced machine learning and statistical models, this system aids businesses in optimizing their inventory processes, ensuring efficient stock management and minimizing stockouts or overstock situations.
 
 ## Table of Contents
 - [Overview](#overview)
